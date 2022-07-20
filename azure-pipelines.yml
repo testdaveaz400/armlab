@@ -1,0 +1,28 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: 'suball'
+      subscriptionId: 'c7d4ef2e-d5ee-4cd2-b88c-c435f6281b52'
+      action: 'Create Or Update Resource Group'
+      resourceGroupName: 'testme_rg'
+      location: 'West Europe'
+      templateLocation: 'Linked artifact'
+      csmFile: '$(Build.SourcesDirectory)/webapp/armdeploy.json'
+      csmParametersFile: '$(Build.SourcesDirectory)/webapp/armparam.json'
+      deploymentMode: 'Incremental'
