@@ -21,7 +21,7 @@ steps:
       subscriptionId: 'c7d4ef2e-d5ee-4cd2-b88c-c435f6281b52'
       action: 'Create Or Update Resource Group'
       resourceGroupName: 'testme_rg1'
-      location: 'West Us'
+      location: 'WestUs'
       templateLocation: 'Linked artifact'
       csmFile: '$(Build.SourcesDirectory)/VM/azuredeploy.json'
       csmParametersFile: '$(Build.SourcesDirectory)/VM/azuredeploy.parameters.json'
