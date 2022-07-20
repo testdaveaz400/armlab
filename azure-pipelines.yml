@@ -23,6 +23,6 @@ steps:
       resourceGroupName: 'testme_rg'
       location: 'West Europe'
       templateLocation: 'Linked artifact'
-      csmFile: '$(Build.SourcesDirectory)/webapp/armdeploy.json'
-      csmParametersFile: '$(Build.SourcesDirectory)/webapp/armparam.json'
+      csmFile: '$(Build.SourcesDirectory)/VM/azuredeploy.json'
+      csmParametersFile: '$(Build.SourcesDirectory)/VM/azuredeploy.parameters.json'
       deploymentMode: 'Incremental'
